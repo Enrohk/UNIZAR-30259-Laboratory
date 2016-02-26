@@ -9,19 +9,16 @@ public class CalculatorV2 implements CalculatorInterface {
 
     private static String SPLIT = ",";
 
+    @Override
     public int sum (String numbers) throws CalculatorException
     {
         if (!Operations.isEmptyString(numbers) )
         {
+            numbers = Operations.deleteLineJumps(numbers);
             if(numbers.contains(SPLIT))
             {
                 String[] numbersArray = numbers.split(SPLIT);
-                int totalSum = 0;
-                for (int i = 0; i < numbersArray.length; i++)
-                {
-                    totalSum += Operations.getIntegerNumber(numbersArray[i]);
-                }
-                return totalSum;
+                return Operations.sumStringArray(numbersArray);
             }
             else
             {

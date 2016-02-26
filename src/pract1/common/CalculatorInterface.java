@@ -5,7 +5,7 @@ import pract1.exceptions.CalculatorException;
 
 public interface CalculatorInterface {
 
-    int sum (String nums) throws CalculatorException;
+    int sum (String numbers) throws CalculatorException;
 
 
 }

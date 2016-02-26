@@ -9,10 +9,12 @@ public class CalculatorV1 implements CalculatorInterface
 {
     private static String SPLIT = ",";
 
+    @Override
     public int sum (String numbers) throws CalculatorException
     {
         if (!Operations.isEmptyString(numbers) )
         {
+
             if(numbers.contains(SPLIT))
             {
                 String[] numbersArray = numbers.split(SPLIT);
@@ -20,12 +22,7 @@ public class CalculatorV1 implements CalculatorInterface
                 {
                     throw new CalculatorException();
                 }
-                int totalSum = 0;
-                for (int i = 0; i < numbersArray.length; i++)
-                {
-                   totalSum += Operations.getIntegerNumber(numbersArray[i]);
-                }
-                return totalSum;
+               return Operations.sumStringArray(numbersArray);
             }
             else
             {

@@ -18,7 +18,8 @@ public class CalculatorCommonTests {
     public static Collection<Object[]> instancesToTest() {
         return Arrays.asList(
                 new Object[]{new CalculatorV1()},
-                new Object[]{new CalculatorV2()}
+                new Object[]{new CalculatorV2()},
+                new Object[]{new CalculatorV3()}
         );
     }
 

@@ -16,4 +16,14 @@ public class CalculatorV2Test
        assertTrue( 6 == calculator.sum("1,2,3"));
     }
 
+    @Test
+    public void testLineJumpInStringInputShouldWork () throws CalculatorException {
+        assertTrue(1 == calculator.sum("0\n,1"));
+    }
+
+    @Test
+    public void testLineJumpInStringInputWithCommaShouldWork () throws CalculatorException {
+        assertTrue(1 == calculator.sum("0,\n,1"));
+    }
+
 }

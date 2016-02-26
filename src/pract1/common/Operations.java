@@ -28,13 +28,13 @@ public class Operations {
         return string.replace("\n","");
     }
 
-    public static int getIntegerNumber (String num) throws CalculatorException
+    public static int getIntegerNumber (String numbers) throws CalculatorException
     {
         try
         {
-            if (!(num.length() == 0))
+            if (!(numbers.length() == 0))
             {
-                return Integer.parseInt(num);
+                return Integer.parseInt(numbers);
             }
             else return 0;
         }
@@ -43,5 +43,30 @@ public class Operations {
             throw new CalculatorException();
         }
 
+    }
+
+    public static int sumStringArray (String[] numbersArray) throws CalculatorException {
+
+        int totalSum = 0;
+        for (int i = 0; i < numbersArray.length; i++)
+        {
+            totalSum += getIntegerNumber(numbersArray[i]);
+        }
+        return totalSum;
+    }
+
+    public static String getSingleDelimiter(String delimiter) throws CalculatorException{
+
+        return delimiter.substring(2);
+    }
+
+    public static boolean hasDelimiterDefinition(String numbers) throws CalculatorException{
+        if(numbers.startsWith("//"))
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
