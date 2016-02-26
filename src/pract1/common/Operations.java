@@ -3,6 +3,9 @@ package pract1.common;
 
 import pract1.exceptions.CalculatorException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Operations {
 
     /**
@@ -48,12 +51,58 @@ public class Operations {
     public static int sumStringArray (String[] numbersArray) throws CalculatorException {
 
         int totalSum = 0;
-        for (int i = 0; i < numbersArray.length; i++)
+        for (String number: numbersArray)
         {
-            totalSum += getIntegerNumber(numbersArray[i]);
+            totalSum += getIntegerNumber(number);
         }
         return totalSum;
     }
+
+    /**
+     *
+     * @param numberArray
+     * @param numToIgnore number above this will be ignored
+     * @return list which first item is the sum ignoring numToIgnore and
+     *          not counting negative integers
+     * @throws CalculatorException
+     */
+    public static List<Integer> getSumAndNegativeNumbersIgnoring (String[] numberArray,
+                                                                  int numToIgnore)
+        throws CalculatorException
+    {
+        List<Integer> returnList = new ArrayList<Integer>();
+        int current;
+
+        for (String number: numberArray)
+        {
+            current = getIntegerNumber(number);
+            if(current <= numToIgnore && current > 0)
+            {
+                returnList.set(0, returnList.get(0)+current);
+            }
+            if(current<0){
+                returnList.add(current);
+            }
+
+        }
+        if(returnList.size()>1){
+            throw new CalculatorException(getNumbersMessage(returnList));
+        }
+
+        return returnList;
+    }
+
+    private static String getNumbersMessage(List<Integer> returnList)
+    {
+        String message = "Números negativos no permitidos ";
+        for(int i = 1; i<returnList.size(); i++){
+            message += returnList.get(i) + " ";
+        }
+        return message;
+
+    }
+
+
 
     public static String getSingleDelimiter(String delimiter) throws CalculatorException{
 

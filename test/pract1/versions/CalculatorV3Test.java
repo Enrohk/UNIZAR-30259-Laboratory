@@ -34,9 +34,19 @@ public class CalculatorV3Test {
         assertTrue(10 == calculator.sum("//;\n1;2;3;4"));
     }
 
-    @Test
-    public void testChangeDelimiterBadDefinedShouldTrhowException () throws CalculatorException{
+    @Test (expected = CalculatorException.class)
+    public void testChangeDelimiterBadDefinedShouldThrowException () throws CalculatorException{
         calculator.sum("/;2");
+    }
+
+    @Test (expected = CalculatorException.class)
+    public void testChangeDelimiterBadUsageShouldThrowException () throws CalculatorException{
+        calculator.sum("//;\n2,1");
+    }
+
+    @Test (expected = CalculatorException.class)
+    public void testChangeDelimiterBadDefinedNoLineJUmpShouldThrowException () throws CalculatorException{
+        calculator.sum("//;2,1");
     }
 
 }
