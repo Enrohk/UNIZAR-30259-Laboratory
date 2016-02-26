@@ -1,4 +1,4 @@
-package pract1.v1;
+package pract1.versions;
 
 import exceptions.pract1.CalculatorException;
 import org.junit.Test;

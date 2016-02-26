@@ -1,4 +1,4 @@
-package exceptions.pract1;
+package pract1.exceptions;
 
 
 public class CalculatorException extends Exception {
