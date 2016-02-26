@@ -9,23 +9,59 @@ public class CalculatorV1
 
     public static int sum (String numbers) throws CalculatorException
     {
+        if (!isEmptyString(numbers) )
+        {
+            if(numbers.contains(SPLIT))
+            {
+                String[] numbersArray = numbers.split(SPLIT);
+                int totalSum = 0;
+                for (int i = 0; i < numbersArray.length; i++)
+                {
+                   totalSum += getIntegerNumber(numbersArray[i]);
+                }
+                return totalSum;
+            }
+            else
+            {
+                return getIntegerNumber(numbers);
+            }
+        }
+        return 0;
+
+    }
+
+    /**
+     * @param string
+     * @return if string param is empy
+     * @throws CalculatorException when string is not a number
+     */
+    private static boolean isEmptyString (String string) throws CalculatorException
+    {
         try
         {
-            String[] nums = numbers.split(SPLIT);
-            if(!(nums.length>2))
-            {
-                int[] realNums = new int[nums.length];
-                for (int i=0; i<nums.length; i++)
-                {
-                    realNums[i] = Integer.parseInt(nums[i]);
-                }
-                return 0;
-            }
+            return string.length() == 0;
+        }
+        catch (NullPointerException e)
+        {
             throw new CalculatorException();
+        }
+
+    }
+
+    private static int getIntegerNumber (String num) throws CalculatorException
+    {
+        try
+        {
+            if (!(num.length() == 0))
+            {
+                return Integer.parseInt(num);
+            }
+            else return 0;
         }
         catch (Exception e)
         {
             throw new CalculatorException();
         }
+
     }
 }
