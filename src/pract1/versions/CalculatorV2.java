@@ -1,12 +1,33 @@
 package pract1.versions;
 
 
-import exceptions.pract1.CalculatorException;
+import pract1.common.CalculatorInterface;
+import pract1.common.Operations;
+import pract1.exceptions.CalculatorException;
 
-public class CalculatorV2 {
+public class CalculatorV2 implements CalculatorInterface {
 
-    public static int sum (String nums) throws CalculatorException
+    private static String SPLIT = ",";
+
+    public int sum (String numbers) throws CalculatorException
     {
+        if (!Operations.isEmptyString(numbers) )
+        {
+            if(numbers.contains(SPLIT))
+            {
+                String[] numbersArray = numbers.split(SPLIT);
+                int totalSum = 0;
+                for (int i = 0; i < numbersArray.length; i++)
+                {
+                    totalSum += Operations.getIntegerNumber(numbersArray[i]);
+                }
+                return totalSum;
+            }
+            else
+            {
+                return Operations.getIntegerNumber(numbers);
+            }
+        }
         return 0;
     }
 

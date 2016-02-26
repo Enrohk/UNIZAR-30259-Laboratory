@@ -16,6 +16,10 @@ public class CalculatorV1 implements CalculatorInterface
             if(numbers.contains(SPLIT))
             {
                 String[] numbersArray = numbers.split(SPLIT);
+                if(numbersArray.length>2)
+                {
+                    throw new CalculatorException();
+                }
                 int totalSum = 0;
                 for (int i = 0; i < numbersArray.length; i++)
                 {
