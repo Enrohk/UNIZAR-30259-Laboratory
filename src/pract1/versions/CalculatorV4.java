@@ -8,6 +8,7 @@ import pract1.exceptions.CalculatorException;
 public class CalculatorV4 implements CalculatorInterface{
 
     private static String SPLIT;
+    private static int MAX_NUMBER = 1000;
 
     @Override
     public int sum(String numbers) throws CalculatorException {
@@ -28,11 +29,20 @@ public class CalculatorV4 implements CalculatorInterface{
                 numbers = numbers.replaceAll("//","");
                 String[] numbersArray = numbers.split(SPLIT);
 
-                return Operations.getSumAndNegativeNumbersIgnoring(numbersArray,1000).get(0);
+                return Operations.getSumAndNegativeNumbersIgnoring(numbersArray,MAX_NUMBER).get(0);
             }
             else
             {
-                return Operations.getIntegerNumber(numbers);
+                int singleNumber = Operations.getIntegerNumber(numbers);
+                if(singleNumber < 0 )
+                {
+                    throw new CalculatorException(Integer.toString(singleNumber));
+                }
+                else if(singleNumber >= MAX_NUMBER)
+                {
+                    return 0;
+                }
+                return singleNumber;
             }
 
 

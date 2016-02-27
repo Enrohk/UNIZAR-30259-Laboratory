@@ -71,6 +71,7 @@ public class Operations {
         throws CalculatorException
     {
         List<Integer> returnList = new ArrayList<Integer>();
+        returnList.add(0);
         int current;
 
         for (String number: numberArray)
@@ -94,7 +95,7 @@ public class Operations {
 
     private static String getNumbersMessage(List<Integer> returnList)
     {
-        String message = "Números negativos no permitidos ";
+        String message = "";
         for(int i = 1; i<returnList.size(); i++){
             message += returnList.get(i) + " ";
         }
@@ -106,7 +107,13 @@ public class Operations {
 
     public static String getSingleDelimiter(String delimiter) throws CalculatorException{
 
-        return delimiter.substring(2);
+        if(delimiter.substring(2).length()==1)
+        {
+            return delimiter.substring(2);
+        }
+        else
+            throw new CalculatorException();
+
     }
 
     public static boolean hasDelimiterDefinition(String numbers) throws CalculatorException{
