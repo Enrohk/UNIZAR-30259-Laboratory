@@ -75,11 +75,4 @@ public class CalculatorV3Test {
         assertTrue(-1 == calculator.sum("0,-1"));
     }
 
-    @Test
-    public void testSumEmptyStringShouldReturn0 () throws Exception {
-        assertTrue(0 == calculator.sum(""));
-    }
-
-
-
 }
