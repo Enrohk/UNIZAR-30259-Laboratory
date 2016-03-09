@@ -7,25 +7,42 @@ import pract1.exceptions.CalculatorException;
 
 public class CalculatorV5 implements CalculatorInterface{
 
-    private static String SPLIT = ",";
+    private static String SPLIT;
+    private static int MAX_NUMBER = 1000;
 
     @Override
     public int sum(String numbers) throws CalculatorException {
-        if (!Operations.isEmptyString(numbers)) {
-            if (Operations.hasDelimiterDefinition(numbers)) {
+        if (!Operations.isEmptyString(numbers) )
+        {
+            if(Operations.hasDelimiterDefinition(numbers))
+            {
                 String[] delimiterAndNumbers = numbers.split("\n");
                 SPLIT = Operations.getSingleDelimiter(delimiterAndNumbers[0]);
-            } else {
+                //numbers = numbers.split(SPLIT)[1];
+            }
+            else {
                 SPLIT = ",";
             }
-            numbers = Operations.deleteLineJumps(numbers,SPLIT);
-            if (numbers.contains(SPLIT)) {
-                numbers = numbers.replaceAll("//", "");
+            numbers = Operations.deleteLineJumps(numbers, SPLIT);
+            if(numbers.contains(SPLIT))
+            {
+                numbers = numbers.replaceAll("//","");
                 String[] numbersArray = numbers.split(SPLIT);
 
-                return Operations.sumStringArray(numbersArray);
-            } else {
-                return Operations.getIntegerNumber(numbers);
+                return Operations.getSumAndNegativeNumbersIgnoring(numbersArray,MAX_NUMBER).get(0);
+            }
+            else
+            {
+                int singleNumber = Operations.getIntegerNumber(numbers);
+                if(singleNumber < 0 )
+                {
+                    throw new CalculatorException(Integer.toString(singleNumber));
+                }
+                else if(singleNumber >= MAX_NUMBER)
+                {
+                    return 0;
+                }
+                return singleNumber;
             }
 
 

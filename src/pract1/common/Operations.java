@@ -77,7 +77,7 @@ public class Operations {
         for (String number: numberArray)
         {
             current = getIntegerNumber(number);
-            if(current <= numToIgnore && current > 0)
+            if(current < numToIgnore && current > 0)
             {
                 returnList.set(0, returnList.get(0)+current);
             }
@@ -105,12 +105,13 @@ public class Operations {
 
 
 
-    public static String getSingleDelimiter(String delimiter) throws CalculatorException{
+    public static String getSingleDelimiter (String delimiter) throws CalculatorException{
 
         if(delimiter.substring(2).length()==1)
         {
             return delimiter.substring(2);
         }
+        //\n \r \t delimiters.
         else if(delimiter.substring(2).length()==2 && delimiter.substring(2).startsWith("\\"))
         {
             return delimiter.substring(2);
@@ -119,6 +120,8 @@ public class Operations {
             throw new CalculatorException();
 
     }
+
+
 
     public static boolean hasDelimiterDefinition(String numbers) throws CalculatorException{
         if(numbers.startsWith("//"))
