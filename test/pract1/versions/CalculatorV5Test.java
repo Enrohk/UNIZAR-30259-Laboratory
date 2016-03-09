@@ -27,7 +27,7 @@ public class CalculatorV5Test
     public void testTwoParamsShouldReturnTheSum () throws CalculatorException {
         assertTrue(5 == calculator.sum("2,3"));
     }
-    
+
 
     @Test
     public void testSumEmptyStringShouldReturn0 () throws Exception {
@@ -126,6 +126,11 @@ public class CalculatorV5Test
     {
         assertTrue(9 == calculator.sum("//\n\n2\n4\n3"));
     }*/
+
+    @Test
+    public void testWithMultipleDelimiterWellFormedShouldWork () throws CalculatorException {
+        assertTrue(6 == calculator.sum("//[*][-]\n1*2-3"));
+    }
 
 
 }

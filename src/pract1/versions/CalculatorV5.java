@@ -17,7 +17,7 @@ public class CalculatorV5 implements CalculatorInterface{
             if(Operations.hasDelimiterDefinition(numbers))
             {
                 String[] delimiterAndNumbers = numbers.split("\n");
-                SPLIT = Operations.getSingleDelimiter(delimiterAndNumbers[0]);
+                SPLIT = Operations.getMultipleDelimiter(delimiterAndNumbers[0]);
                 //numbers = numbers.split(SPLIT)[1];
             }
             else {

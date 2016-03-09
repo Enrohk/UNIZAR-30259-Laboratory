@@ -132,4 +132,41 @@ public class Operations {
             return false;
         }
     }
+
+    public static String getMultipleDelimiter (String delimiter) throws CalculatorException {
+
+        if(delimiter.substring(2).length()==1)
+        {
+            return getSingleDelimiter(delimiter);
+        }
+        //\n \r \t delimiters.
+        else if(delimiter.substring(2).length()==2 && delimiter.substring(2).startsWith("\\"))
+        {
+            return getSingleDelimiter(delimiter);
+        }
+        else
+            return getRegExp(delimiter);
+
+    }
+
+    public static String getRegExp(String splitExpReg) {
+
+
+        //Delete last line jump if exists
+        if(splitExpReg.endsWith("\n"))
+        {
+            splitExpReg = splitExpReg .substring(0,splitExpReg.length()-1);
+        }
+        //delte first 2 //
+        if(splitExpReg.startsWith("//"))
+        {
+            splitExpReg = splitExpReg.substring(2);
+        }
+        //convert split to regExp
+        splitExpReg = "[" + splitExpReg + "]+";
+        return splitExpReg;
+
+    }
+
+  
 }
