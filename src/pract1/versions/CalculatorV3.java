@@ -20,7 +20,7 @@ public class CalculatorV3 implements CalculatorInterface
             else {
                 SPLIT = ",";
             }
-            numbers = Operations.deleteLineJumps(numbers);
+            numbers = Operations.deleteLineJumps(numbers, SPLIT);
             if(numbers.contains(SPLIT))
             {
                 numbers = numbers.replaceAll("//","");

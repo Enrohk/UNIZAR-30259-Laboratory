@@ -75,4 +75,27 @@ public class CalculatorV3Test {
         assertTrue(-1 == calculator.sum("0,-1"));
     }
 
+
+    @Test
+    public void testSumEmptyStringShouldReturn0 () throws CalculatorException {
+        assertTrue(0 == calculator.sum(""));
+    }
+
+    @Test (expected = CalculatorException.class)
+    public void testCorrectNumbersBUtIncorrectDelimiterShouldThrowException () throws CalculatorException
+    {
+        calculator.sum("1-2-3");
+    }
+
+    @Test
+    public void testShouldWorkFineWithMultipleLineJumps () throws CalculatorException
+    {
+        assertTrue(6 == calculator.sum("1\n2,2\n\n\n1"));
+    }
+
+   /* @Test
+    public void testShouldWorkFineWithNewDelimiterAsLineJump () throws CalculatorException
+    {
+        assertTrue(9 == calculator.sum("//\n\n2\n4\n3"));
+    }*/
 }

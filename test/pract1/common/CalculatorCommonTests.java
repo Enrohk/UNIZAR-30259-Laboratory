@@ -1,6 +1,6 @@
 package pract1.common;
 
-/*import org.junit.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import pract1.exceptions.CalculatorException;
@@ -32,6 +32,4 @@ public class CalculatorCommonTests {
     }
 
 
-
 }
-*/

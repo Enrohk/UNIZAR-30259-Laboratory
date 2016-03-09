@@ -14,7 +14,7 @@ public class CalculatorV2 implements CalculatorInterface {
     {
         if (!Operations.isEmptyString(numbers) )
         {
-            numbers = Operations.deleteLineJumps(numbers);
+            numbers = Operations.deleteLineJumps(numbers, SPLIT);
             if(numbers.contains(SPLIT))
             {
                 String[] numbersArray = numbers.split(SPLIT);

@@ -26,9 +26,9 @@ public class Operations {
 
     }
 
-    public static String deleteLineJumps (String string)
+    public static String deleteLineJumps (String string, String split)
     {
-        return string.replace("\n","");
+        return string.replaceAll("\n",split);
     }
 
     public static int getIntegerNumber (String numbers) throws CalculatorException
@@ -108,6 +108,10 @@ public class Operations {
     public static String getSingleDelimiter(String delimiter) throws CalculatorException{
 
         if(delimiter.substring(2).length()==1)
+        {
+            return delimiter.substring(2);
+        }
+        else if(delimiter.substring(2).length()==2 && delimiter.substring(2).startsWith("\\"))
         {
             return delimiter.substring(2);
         }
