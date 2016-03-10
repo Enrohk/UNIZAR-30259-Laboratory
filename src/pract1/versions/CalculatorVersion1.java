@@ -2,6 +2,7 @@ package pract1.versions;
 
 
 import pract1.common.CalculatorInterface;
+import pract1.common.Operations;
 import pract1.exceptions.CalculatorException;
 
 import java.util.StringTokenizer;
@@ -15,7 +16,7 @@ public class CalculatorVersion1 implements CalculatorInterface{
     @Override
     public int sum(String numbers) throws CalculatorException {
 
-        if(isEmptyOrNullAndThrowException(numbers))
+        if(Operations.isEmptyOrNullAndThrowException(numbers))
         {
             return 0;
         }
@@ -26,14 +27,6 @@ public class CalculatorVersion1 implements CalculatorInterface{
         }
     }
 
-    private boolean isEmptyOrNullAndThrowException (String s) throws CalculatorException {
-        try {
-            return s.length()==0;
-        }
-       catch (Exception e){
-           throw new CalculatorException();
-       }
-    }
 
     private int sumNumbers (String numbers) throws CalculatorException
     {
@@ -42,7 +35,7 @@ public class CalculatorVersion1 implements CalculatorInterface{
         int totalNumbers = 0;
         while(st.hasMoreTokens())
         {
-            totalSum += getIntegerOrThrowException(st.nextToken());
+            totalSum += Operations.getIntegerOrThrowException(st.nextToken());
             totalNumbers ++;
         }
         if(totalNumbers >2 )
@@ -52,14 +45,5 @@ public class CalculatorVersion1 implements CalculatorInterface{
         return totalSum;
     }
 
-    private int getIntegerOrThrowException (String number) throws CalculatorException
-    {
-        try{
-            return Integer.parseInt(number);
-        }
-        catch (Exception e)
-        {
-            throw new CalculatorException();
-        }
-    }
+
 }
