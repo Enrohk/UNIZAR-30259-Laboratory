@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 public class CalculatorV5Test
 {
 
-        private CalculatorV5 calculator = new CalculatorV5();
+        private CalculatorVersion5 calculator = new CalculatorVersion5();
 
 
     @Test(expected = CalculatorException.class)
@@ -60,13 +60,6 @@ public class CalculatorV5Test
         exception.expectMessage("Números negativos no permitidos -1 -2 -3");
         assertTrue(-1 == calculator.sum("0,-1,-2,-3"));
     }
-
-
-
-
-
-
-
 
     @Test
     public void testMoreThanTwoNumbersShouldWork () throws CalculatorException {
@@ -121,16 +114,9 @@ public class CalculatorV5Test
         assertTrue(6 == calculator.sum("1\n2,2\n\n\n1"));
     }
 
-   /* @Test
-    public void testShouldWorkFineWithNewDelimiterAsLineJump () throws CalculatorException
-    {
-        assertTrue(9 == calculator.sum("//\n\n2\n4\n3"));
-    }*/
-
     @Test
     public void testWithMultipleDelimiterWellFormedShouldWork () throws CalculatorException {
         assertTrue(6 == calculator.sum("//[*][-]\n1*2-3"));
     }
-
 
 }

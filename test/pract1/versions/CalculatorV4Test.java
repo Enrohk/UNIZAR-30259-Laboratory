@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 public class CalculatorV4Test {
 
-    private CalculatorV4 calculator = new CalculatorV4();
+    private CalculatorVersion4 calculator = new CalculatorVersion4();
 
     @Rule
     public ExpectedException exception = ExpectedException.none();

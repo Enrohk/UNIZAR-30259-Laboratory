@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 
 public class CalculatorV3Test {
 
-    private CalculatorV3 calculator = new CalculatorV3();
+    private CalculatorVersion3 calculator = new CalculatorVersion3();
 
     @Test
     public void testMoreThanTwoNumbersShouldWork () throws CalculatorException {

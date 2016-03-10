@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class CalculatorV2Test
 {
 
-    private CalculatorV2 calculator = new CalculatorV2();
+    private CalculatorVersion2 calculator = new CalculatorVersion2();
 
     @Test
     public void testOneParamShouldReturnThatNumber () throws CalculatorException {

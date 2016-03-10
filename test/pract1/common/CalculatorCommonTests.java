@@ -17,11 +17,11 @@ public class CalculatorCommonTests {
     @Parameterized.Parameters
     public static Collection<Object[]> instancesToTest() {
         return Arrays.asList(
-                new Object[]{new CalculatorV1()},
-                new Object[]{new CalculatorV2()},
-                new Object[]{new CalculatorV3()},
-                new Object[]{new CalculatorV4()},
-                new Object[]{new CalculatorV5()}
+                new Object[]{new CalculatorVersion1()},
+                new Object[]{new CalculatorVersion2()},
+                new Object[]{new CalculatorVersion3()},
+                new Object[]{new CalculatorVersion4()},
+                new Object[]{new CalculatorVersion5()}
         );
     }
 

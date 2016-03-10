@@ -5,6 +5,7 @@ import pract1.exceptions.CalculatorException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 public class Operations {
 
@@ -46,6 +47,49 @@ public class Operations {
             throw new CalculatorException();
         }
 
+    }
+
+    public static int sumStringTokenizer (StringTokenizer st) throws CalculatorException {
+        int totalSum = 0;
+        while(st.hasMoreTokens())
+        {
+            totalSum += getIntegerNumber(st.nextToken());
+        }
+        return totalSum;
+    }
+
+    /**
+     *
+     * @param numToIgnore number above this will be ignored
+     * @return list which first item is the sum ignoring numToIgnore and
+     *          not counting negative integers
+     * @throws CalculatorException
+     */
+    public static List<Integer> getSumAndNegativeNumbersIgnoring (StringTokenizer st,
+                                                                  int numToIgnore)
+            throws CalculatorException
+    {
+        List<Integer> returnList = new ArrayList<Integer>();
+        returnList.add(0);
+        int current;
+
+        while (st.hasMoreTokens())
+        {
+            current = getIntegerNumber(st.nextToken());
+            if(current < numToIgnore && current > 0)
+            {
+                returnList.set(0, returnList.get(0)+current);
+            }
+            if(current<0){
+                returnList.add(current);
+            }
+
+        }
+        if(returnList.size()>1){
+            throw new CalculatorException(getNumbersMessage(returnList));
+        }
+
+        return returnList;
     }
 
     public static int sumStringArray (String[] numbersArray) throws CalculatorException {
@@ -168,5 +212,4 @@ public class Operations {
 
     }
 
-  
 }

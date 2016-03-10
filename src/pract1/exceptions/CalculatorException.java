@@ -4,7 +4,7 @@ package pract1.exceptions;
 public class CalculatorException extends Exception
 {
 
-    private static String MESSAGE = "Números negativos no permitidos ";
+    private static String MESSAGE = "Números negativos no permitidos";
 
     public CalculatorException()
     {

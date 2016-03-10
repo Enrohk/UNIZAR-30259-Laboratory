@@ -11,6 +11,7 @@ import org.junit.runners.Parameterized;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.StringTokenizer;
 
 import static org.junit.Assert.assertArrayEquals;
 
@@ -20,9 +21,10 @@ public class TestSplitMultiple {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {
-                {new String[] {"1","2","3"}, "1*2-3", "//*-\n"},
-                {new String[] {"1","2","3"}, "1*2-3", "//-*\n"},   //Order not matters
-                {new String[] {"1","2","3"}, "1**2-3", "//*-\n"}   //Long splitters works
+                {new String[] {"1","2","3"}, "1*2-3", "//[*][-]\n"},
+                {new String[] {"1","2","3"}, "1*2-3", "//[-][*]\n"},   //Order not matters
+                {new String[] {"1","2","3"}, "1**2-3", "//[*][-]\n"},   //Long splitters works
+                {new String[] {"1","2","3"}, "1.2.3", "//[.]\n"}
         });
     }
 
@@ -43,6 +45,8 @@ public class TestSplitMultiple {
     {
         assertArrayEquals(expected, split.split(Operations.getRegExp(splitExpReg)));
     }
+
+
 
 
 }

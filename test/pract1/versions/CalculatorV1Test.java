@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 
 public class CalculatorV1Test {
 
-    private CalculatorV1 calculator = new CalculatorV1();
+    private CalculatorVersion1 calculator = new CalculatorVersion1();
 
     @Test (expected = CalculatorException.class)
     public void testShouldNoSupportLineJumps () throws CalculatorException
