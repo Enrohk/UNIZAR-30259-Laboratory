@@ -42,7 +42,6 @@ public class CalculatorV4Test {
     }
 
 
-
     @Test
     public void testNegativeNumberShouldThrowExceptionWithMessage () throws CalculatorException {
         exception.expect(CalculatorException.class);
@@ -61,13 +60,6 @@ public class CalculatorV4Test {
     public void testSumEmptyStringShouldReturn0 () throws Exception {
         assertTrue(0 == calculator.sum(""));
     }
-
-
-
-
-
-
-
 
     @Test
     public void testMoreThanTwoNumbersShouldWork () throws CalculatorException {
@@ -121,11 +113,5 @@ public class CalculatorV4Test {
     {
         assertTrue(6 == calculator.sum("1\n2,2\n\n\n1"));
     }
-
-   /* @Test
-    public void testShouldWorkFineWithNewDelimiterAsLineJump () throws CalculatorException
-    {
-        assertTrue(9 == calculator.sum("//\n\n2\n4\n3"));
-    }*/
 
 }

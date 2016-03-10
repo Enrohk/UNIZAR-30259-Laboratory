@@ -93,9 +93,4 @@ public class CalculatorV3Test {
         assertTrue(6 == calculator.sum("1\n2,2\n\n\n1"));
     }
 
-   /* @Test
-    public void testShouldWorkFineWithNewDelimiterAsLineJump () throws CalculatorException
-    {
-        assertTrue(9 == calculator.sum("//\n\n2\n4\n3"));
-    }*/
 }

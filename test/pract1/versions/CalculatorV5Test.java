@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 public class CalculatorV5Test
 {
 
-        private CalculatorVersion5 calculator = new CalculatorVersion5();
+    private CalculatorVersion5 calculator = new CalculatorVersion5();
 
 
     @Test(expected = CalculatorException.class)
@@ -34,8 +34,6 @@ public class CalculatorV5Test
         assertTrue(0 == calculator.sum(""));
     }
 
-
-
     @Rule
     public ExpectedException exception = ExpectedException.none();
 
@@ -43,8 +41,6 @@ public class CalculatorV5Test
     public void testWithOneBigNumberShouldIgnore () throws CalculatorException {
         assertTrue(0 == calculator.sum("1000"));
     }
-
-
 
 
     @Test
@@ -119,4 +115,13 @@ public class CalculatorV5Test
         assertTrue(6 == calculator.sum("//[*][-]\n1*2-3"));
     }
 
+    @Test
+    public void testWithDelimiterWithMoreThanOneCharShouldWork () throws CalculatorException {
+        assertTrue(5 == calculator.sum("//[**]\n2**3"));
+    }
+
+    @Test
+    public void testWithMultipleDelimiterWithMoreThanOneCharShouldWork () throws CalculatorException {
+        assertTrue(9 == calculator.sum("//[**][.]\n2**3.4"));
+    }
 }

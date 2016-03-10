@@ -20,12 +20,6 @@ public class CalculatorV1Test {
         calculator.sum("1,2,3");
     }
 
-
-
-
-
-
-
     @Test
     public void testOneParamShouldReturnThatNumber () throws CalculatorException {
         assertTrue(1000 == calculator.sum("1000"));
